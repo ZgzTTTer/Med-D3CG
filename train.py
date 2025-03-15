@@ -22,13 +22,13 @@ from utils.metrics import calculate_metrics, calculate_metrics_rgb
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_name", type=str, default="UpAttnDDPM",
+    parser.add_argument("--model_name", type=str, default="D3CG",
                         choices=["DDPM", "DIFFDDPM", "midattnDDPM", "UpAttnDDPM", "WTDDPM", "D3CG"])
     parser.add_argument("--dataset_type", type=str, default="ctmri",
                         choices=["foot", "mripet", "mrispect", "ctmri"])
-    parser.add_argument("--dataset_train_dir", type=str, default="/home/midi/datasets/SynthRAD2023pelvis/train/")
-    parser.add_argument("--dataset_val_dir", type=str, default="/home/midi/datasets/SynthRAD2023pelvis/val/")
-    parser.add_argument("--out_name", type=str, default="UpAttnDDPM")
+    parser.add_argument("--dataset_train_dir", type=str, default="./datasets/SynthRAD2023pelvis/train/")
+    parser.add_argument("--dataset_val_dir", type=str, default="./datasets/SynthRAD2023pelvis/val/")
+    parser.add_argument("--out_name", type=str, default="D3CG")
     parser.add_argument("--batch_size", type=int, default=2)
     parser.add_argument("--T", type=int, default=1000)
     parser.add_argument("--ch", type=int, default=128)
@@ -45,9 +45,9 @@ def parse_args():
     parser.add_argument("--psi", type=float, default=1.0)
     parser.add_argument("--s", type=float, default=0.1)
     parser.add_argument("--save_weight_dir", type=str, default="./results/CTMRIpelvis")
-    parser.add_argument("--resume_ckpt", type=str, default="/home/midi/project/MEDD3CG/results/CTMRIpelvis/DDPM/ckpt_1970.pt")
-    parser.add_argument("--start_epoch", type=int, default=1971)
-    parser.add_argument("--val_start_epoch", type=int, default=1971)
+    parser.add_argument("--resume_ckpt", type=str, default=".")
+    parser.add_argument("--start_epoch", type=int, default=1)
+    parser.add_argument("--val_start_epoch", type=int, default=1951)
     parser.add_argument("--val_num", type=int, default=20)
     return parser.parse_args()
 
