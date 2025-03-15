@@ -159,7 +159,7 @@ class MRISPECT(Dataset):
         self.folder_paths = [os.path.join(root_dir, f) for f in os.listdir(root_dir) if
                              os.path.isdir(os.path.join(root_dir, f))]
 
-        if transforms_ is None:      
+        if transforms_ is None:
             self.transforms = transforms.Compose([
                 transforms.Resize((self.image_size, self.image_size)),
                 transforms.ToTensor(),

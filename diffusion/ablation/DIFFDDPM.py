@@ -16,9 +16,11 @@ class DiffDDPMSampler_cond(BaseDiffusionSampler_cond):
             batch_size = x_T.shape[0]
             device = x_T.device
 
-            cbct = x_T[:, 1:2, :, :]
+            out_channels = self.model.out_channels
+            ct = x_T[:, :out_channels, :, :]
+            cbct = x_T[:, out_channels:, :, :]
 
-            d_t = torch.randn_like(cbct)
+            d_t = torch.randn_like(ct)
 
             for time_step in reversed(range(self.T)):
                 t = torch.full((batch_size,), time_step, device=device, dtype=torch.long)

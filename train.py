@@ -11,25 +11,27 @@ from models.base import BaseUNet
 from models.attention import MidAttnUNet, UpAttnUNet
 from models.wavelet import WTUNet
 from diffusion.gaussian import GaussianDiffusionTrainer_cond, GaussianDiffusionSampler_cond
-from diffusion.attn.upattnDDPM import UpAttnDDPMTrainer_cond,UpAttnDDPMSampler_cond
+from diffusion.attn.upattnDDPM import UpAttnDDPMTrainer_cond, UpAttnDDPMSampler_cond
 from diffusion.attn.midattnDDPM import MidAttnDDPMTrainer_cond, MidAttnDDPMSampler_cond
 from diffusion.ablation.DIFFDDPM import DiffDDPMTrainer_cond, DiffDDPMSampler_cond
 from diffusion.ablation.wavelet import WTDDPMTrainer_cond, WTDDPMSampler_cond
 from diffusion.D3CG import D3CGTrainer_cond, D3CGSampler_cond
-from data.dataset import FootDataset2
-from utils.metrics import calculate_metrics
+from data.dataset import FootDataset2, MRIPET, MRISPECT, CTMRI
+from utils.metrics import calculate_metrics, calculate_metrics_rgb
 
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_name", type=str, default="D3CG",
+    parser.add_argument("--model_name", type=str, default="UpAttnDDPM",
                         choices=["DDPM", "DIFFDDPM", "midattnDDPM", "UpAttnDDPM", "WTDDPM", "D3CG"])
-    parser.add_argument("--dataset_train_dir", type=str, default="./train")
-    parser.add_argument("--dataset_val_dir", type=str, default="./val")
-    parser.add_argument("--out_name", type=str, default="trail_D3CG_1")
+    parser.add_argument("--dataset_type", type=str, default="ctmri",
+                        choices=["foot", "mripet", "mrispect", "ctmri"])
+    parser.add_argument("--dataset_train_dir", type=str, default="/home/midi/datasets/SynthRAD2023pelvis/train/")
+    parser.add_argument("--dataset_val_dir", type=str, default="/home/midi/datasets/SynthRAD2023pelvis/val/")
+    parser.add_argument("--out_name", type=str, default="UpAttnDDPM")
     parser.add_argument("--batch_size", type=int, default=2)
     parser.add_argument("--T", type=int, default=1000)
-    parser.add_argument("--ch", type=int, default=64)
+    parser.add_argument("--ch", type=int, default=128)
     parser.add_argument("--ch_mult", nargs='+', type=int, default=[1, 2, 3, 4])
     parser.add_argument("--attn", nargs='+', type=int, default=[2])
     parser.add_argument("--num_res_blocks", type=int, default=2)
@@ -42,11 +44,11 @@ def parse_args():
     parser.add_argument("--image_size", type=int, default=256)
     parser.add_argument("--psi", type=float, default=1.0)
     parser.add_argument("--s", type=float, default=0.1)
-    parser.add_argument("--save_weight_dir", type=str, default="./results/check")
-    parser.add_argument("--resume_ckpt", type=str, default="./results/check/trail_D3CG_1/ckpt.pt")
-    parser.add_argument("--start_epoch", type=int, default=1)
-    parser.add_argument("--val_start_epoch", type=int, default=1901)
-    parser.add_argument("--val_num", type=int, default=16)
+    parser.add_argument("--save_weight_dir", type=str, default="./results/CTMRIpelvis")
+    parser.add_argument("--resume_ckpt", type=str, default="/home/midi/project/MEDD3CG/results/CTMRIpelvis/DDPM/ckpt_1970.pt")
+    parser.add_argument("--start_epoch", type=int, default=1971)
+    parser.add_argument("--val_start_epoch", type=int, default=1971)
+    parser.add_argument("--val_num", type=int, default=20)
     return parser.parse_args()
 
 
@@ -74,7 +76,7 @@ def should_save_model(current_metrics, best_metrics):
 
 def main():
     args = parse_args()
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 
     # Setup logging
     save_weight_dir = os.path.join(args.save_weight_dir, args.out_name)
@@ -90,11 +92,27 @@ def main():
     logging.info(f"Args: {args}")
 
     # Setup data
-    train_dataset = FootDataset2(args.dataset_train_dir, image_size=args.image_size)
+    dataset_classes = {
+        "foot": FootDataset2,
+        "ctmri": CTMRI,
+        "mripet": MRIPET,
+        "mrispect": MRISPECT
+    }
+
+    dataset_class = dataset_classes[args.dataset_type]
+    train_dataset = dataset_class(args.dataset_train_dir, image_size=args.image_size)
     train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=8)
 
-    val_dataset = FootDataset2(args.dataset_val_dir, image_size=args.image_size)
+    val_dataset = dataset_class(args.dataset_val_dir, image_size=args.image_size)
     val_dataloader = DataLoader(val_dataset, batch_size=1, shuffle=False, num_workers=4)
+
+    # Determine input and output channels based on dataset type
+    if args.dataset_type in ["mripet", "mrispect"]:
+        in_channels = 6  # RGB + RGB
+        out_channels = 3  # RGB output
+    else:
+        in_channels = 2  # Two grayscale images
+        out_channels = 1  # One grayscale output
 
     # Initialize model
     model_classes = {
@@ -108,7 +126,9 @@ def main():
 
     net_model = model_classes[args.model_name](
         args.T, args.ch, args.ch_mult, args.attn,
-        args.num_res_blocks, args.dropout
+        args.num_res_blocks, args.dropout,
+        in_channels=in_channels,
+        out_channels=out_channels
     ).to(device)
 
     optimizer = torch.optim.AdamW(
@@ -197,10 +217,22 @@ def main():
                         x_T = torch.cat((torch.randn_like(target), condition), 1)
 
                     generated_images = sampler(x_T)
-                    generated_image = generated_images[0, 0].cpu().numpy()
-                    target_image = target[0, 0].cpu().numpy()
 
-                    metrics = calculate_metrics(generated_image, target_image)
+                    # Extract only the target channels from the generated images
+                    if args.dataset_type in ["mripet", "mrispect"]:
+                        generated_image = generated_images[0, :3].cpu().numpy()  # Take first 3 channels for RGB
+                        target_image = target[0].cpu().numpy()
+
+                        # Convert from CHW to HWC format
+                        generated_image = generated_image.transpose(1, 2, 0)
+                        target_image = target_image.transpose(1, 2, 0)
+
+                        metrics = calculate_metrics_rgb(generated_image, target_image)
+                    else:
+                        generated_image = generated_images[0, 0].cpu().numpy()  # Take first channel for grayscale
+                        target_image = target[0, 0].cpu().numpy()
+                        metrics = calculate_metrics(generated_image, target_image)
+
                     metrics_list.append(metrics)
 
             # Calculate average metrics
@@ -234,7 +266,7 @@ def main():
                     os.path.join(save_weight_dir, f'ckpt_{epoch}.pt')
                 )
 
-        if epoch % 100 == 0:
+        if epoch % 1000 == 0:
             torch.save(
                 net_model.state_dict(),
                 os.path.join(save_weight_dir, f'ckpt_{epoch}.pt')

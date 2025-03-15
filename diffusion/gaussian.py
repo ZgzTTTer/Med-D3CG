@@ -10,8 +10,10 @@ class GaussianDiffusionSampler_cond(BaseDiffusionSampler_cond):
     def forward(self,x_T):
         with torch.no_grad():
             x_t = x_T
-            ct = x_t[:,0:1,:,:]
-            cbct = x_t[:,1:2,:,:]
+            out_channels = self.model.out_channels
+            ct = x_t[:, :out_channels, :, :]
+            cbct = x_t[:, out_channels:, :, :]
+            
             for time_step in reversed(range(self.T)):
                 t = x_t.new_ones([x_T.shape[0],],dtype=torch.long)*time_step
                 var = torch.cat([self.posterior_var[1:2], self.betas[1:]])
