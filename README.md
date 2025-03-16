@@ -34,9 +34,15 @@ pip install -r requirements.txt
 ---
 
 ## 🚀 Usage
+We have prepared the SynthRAD2023 dataset that matches our code processing dataset, which is available at the link below:
+```bash
+https://drive.google.com/drive/folders/1TGIUDLbMxDao2o4o8zsxcY1xv5hSlwDK?usp=sharing
+```
+
+
 To prepare the dataset, organize your data into multiple subfolders, where each subfolder represents a single sample. Each subfolder should contain **two PNG images**:
 
-- One **original image** (filename starting with `"ct"`).
+- One **CT image** (filename starting with `"ct"`).
 - One **MRI image** (filename starting with `"mri"`).
 
 ```
@@ -76,5 +82,5 @@ python pinggu.py
 ## 📜 Citation
 If you find this work useful, please cite our paper:
 ```
-1
+
 ```
