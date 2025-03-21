@@ -76,7 +76,7 @@ Make sure to set the model file, output folder, and test dataset folder before r
 python pinggu.py
 ```
 
-###  2️⃣ Generating the Image
+### 3️⃣ Generating the Image
 
 Pass in a .png image and select the generation model to generate the target image.
 
