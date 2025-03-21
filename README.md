@@ -10,8 +10,8 @@ The diffusion process:
 
 ### ✨ Key Features
 - **Difference Domain**: Captures residual information rather than directly synthesizing images.
-- **Wavelet Module  **: Uses DWT and IDWT to accelerate the diffusion process.
-- **Supports Multiple Modalities  **: Supports cross-modality translation.
+- **Wavelet Module**: Uses DWT and IDWT to accelerate the diffusion process.
+- **Supports Multiple Modalities**: Supports cross-modality translation.
 
   
 
@@ -76,8 +76,13 @@ Make sure to set the model file, output folder, and test dataset folder before r
 python pinggu.py
 ```
 
----
+###  2️⃣ Generating the Image
 
+Pass in a .png image and select the generation model to generate the target image.
+
+```bash
+python generation.py
+```
 
 ## 📜 Citation
 If you find this work useful, please cite our paper:
