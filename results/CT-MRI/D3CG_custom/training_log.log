@@ -1,0 +1,147 @@
+2025-09-09 17:15:58,955 [INFO] Args: Namespace(model_name='D3CG_custom', wave_type='haar', nonlinear_type='linear', transform_levels=2, dataset_type='ctmri', dataset_train_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/train/', dataset_val_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/val/', out_name='D3CG_custom', batch_size=2, T=1000, ch=128, ch_mult=[1, 2, 3, 4], attn=[2], num_res_blocks=2, dropout=0.3, lr=1e-05, n_epochs=4000, beta_1=0.0001, beta_T=0.02, grad_clip=1.0, image_size=256, psi=1.0, s=0.1, alpha=1.0, beta=1.0, negative_slope=0.1, scale=1.0, save_weight_dir='./results/CT-MRI', resume_ckpt='', start_epoch=1, val_start_epoch=3951, val_num=12, list_models=False)
+2025-09-09 17:15:58,955 [INFO] Model: D3CG_custom
+2025-09-09 17:16:00,477 [INFO] Starting model profiling...
+
+============================================================
+Model Profiling Results for D3CG_custom
+============================================================
+Total Parameters: 83,093,892 (83.09M)
+Trainable Parameters: 82,965,892 (82.97M)
+FLOPs: 237.695G (237,695,336,448.0)
+Model Memory: 0.0MB
+Inference Time: 12.91ms
+============================================================
+
+2025-09-09 17:16:03,341 [INFO] Model profiling completed:
+2025-09-09 17:16:03,341 [INFO]   Parameters: 83.09M
+2025-09-09 17:16:03,341 [INFO]   FLOPs: 237.695G
+2025-09-09 17:16:03,341 [INFO]   Memory: 0.0MB
+2025-09-09 17:16:03,341 [INFO]   Inference Time: 12.91ms
+2025-09-09 17:22:15,769 [INFO] Args: Namespace(model_name='D3CG_custom', wave_type='haar', nonlinear_type='linear', transform_levels=2, dataset_type='ctmri', dataset_train_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/train/', dataset_val_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/val/', out_name='D3CG_custom', batch_size=2, T=1000, ch=128, ch_mult=[1, 2, 3, 4], attn=[2], num_res_blocks=2, dropout=0.3, lr=1e-05, n_epochs=4000, beta_1=0.0001, beta_T=0.02, grad_clip=1.0, image_size=256, psi=1.0, s=0.1, alpha=1.0, beta=1.0, negative_slope=0.1, scale=1.0, save_weight_dir='./results/CT-MRI', resume_ckpt='', start_epoch=1, val_start_epoch=3951, val_num=12, list_models=False)
+2025-09-09 17:22:15,769 [INFO] Model: D3CG_custom
+2025-09-09 17:22:17,029 [INFO] Starting model profiling...
+
+============================================================
+Model Profiling Results for D3CG_custom
+============================================================
+Total Parameters: 83,093,892 (83.09M)
+Trainable Parameters: 82,965,892 (82.97M)
+FLOPs: 237.695G (237,695,336,448.0)
+Model Memory: 0.0MB
+Inference Time: 12.99ms
+============================================================
+
+2025-09-09 17:22:18,704 [INFO] Model profiling completed:
+2025-09-09 17:22:18,704 [INFO]   Parameters: 83.09M
+2025-09-09 17:22:18,704 [INFO]   FLOPs: 237.695G
+2025-09-09 17:22:18,704 [INFO]   Memory: 0.0MB
+2025-09-09 17:22:18,704 [INFO]   Inference Time: 12.99ms
+2025-09-09 17:22:24,424 [INFO] [Epoch 1/4000] [ETA: 6:21:12.942444] [Duration: 0:00:05.719652] [Loss: 108826.4969] [Model: D3CG_custom]
+2025-09-09 17:22:29,361 [INFO] [Epoch 2/4000] [ETA: 5:29:00.024914] [Duration: 0:00:04.937465] [Loss: 45515.0839] [Model: D3CG_custom]
+2025-09-09 17:22:48,358 [INFO] Args: Namespace(model_name='D3CG_custom', wave_type='haar', nonlinear_type='linear', transform_levels=3, dataset_type='ctmri', dataset_train_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/train/', dataset_val_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/val/', out_name='D3CG_custom', batch_size=2, T=1000, ch=128, ch_mult=[1, 2, 3, 4], attn=[2], num_res_blocks=2, dropout=0.3, lr=1e-05, n_epochs=4000, beta_1=0.0001, beta_T=0.02, grad_clip=1.0, image_size=256, psi=1.0, s=0.1, alpha=1.0, beta=1.0, negative_slope=0.1, scale=1.0, save_weight_dir='./results/CT-MRI', resume_ckpt='', start_epoch=1, val_start_epoch=3951, val_num=12, list_models=False)
+2025-09-09 17:22:48,358 [INFO] Model: D3CG_custom
+2025-09-09 17:22:51,645 [INFO] Starting model profiling...
+
+============================================================
+Model Profiling Results for D3CG_custom
+============================================================
+Total Parameters: 83,093,892 (83.09M)
+Trainable Parameters: 82,965,892 (82.97M)
+FLOPs: 237.695G (237,695,336,448.0)
+Model Memory: 0.0MB
+Inference Time: 13.19ms
+============================================================
+
+2025-09-09 17:22:52,864 [INFO] Model profiling completed:
+2025-09-09 17:22:52,865 [INFO]   Parameters: 83.09M
+2025-09-09 17:22:52,865 [INFO]   FLOPs: 237.695G
+2025-09-09 17:22:52,865 [INFO]   Memory: 0.0MB
+2025-09-09 17:22:52,865 [INFO]   Inference Time: 13.19ms
+2025-09-09 17:22:58,304 [INFO] [Epoch 1/4000] [ETA: 6:02:27.678329] [Duration: 0:00:05.438264] [Loss: 119265.5175] [Model: D3CG_custom]
+2025-09-09 17:23:03,352 [INFO] [Epoch 2/4000] [ETA: 5:36:24.646738] [Duration: 0:00:05.048673] [Loss: 59331.7185] [Model: D3CG_custom]
+2025-09-09 17:23:16,427 [INFO] Args: Namespace(model_name='D3CG_custom', wave_type='haar', nonlinear_type='linear', transform_levels=1, dataset_type='ctmri', dataset_train_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/train/', dataset_val_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/val/', out_name='D3CG_custom', batch_size=2, T=1000, ch=128, ch_mult=[1, 2, 3, 4], attn=[2], num_res_blocks=2, dropout=0.3, lr=1e-05, n_epochs=4000, beta_1=0.0001, beta_T=0.02, grad_clip=1.0, image_size=256, psi=1.0, s=0.1, alpha=1.0, beta=1.0, negative_slope=0.1, scale=1.0, save_weight_dir='./results/CT-MRI', resume_ckpt='', start_epoch=1, val_start_epoch=3951, val_num=12, list_models=False)
+2025-09-09 17:23:16,427 [INFO] Model: D3CG_custom
+2025-09-09 17:23:17,807 [INFO] Starting model profiling...
+
+============================================================
+Model Profiling Results for D3CG_custom
+============================================================
+Total Parameters: 83,093,892 (83.09M)
+Trainable Parameters: 82,965,892 (82.97M)
+FLOPs: 237.695G (237,695,336,448.0)
+Model Memory: 0.0MB
+Inference Time: 12.85ms
+============================================================
+
+2025-09-09 17:23:18,504 [INFO] Model profiling completed:
+2025-09-09 17:23:18,504 [INFO]   Parameters: 83.09M
+2025-09-09 17:23:18,504 [INFO]   FLOPs: 237.695G
+2025-09-09 17:23:18,504 [INFO]   Memory: 0.0MB
+2025-09-09 17:23:18,504 [INFO]   Inference Time: 12.85ms
+2025-09-09 17:23:25,757 [INFO] [Epoch 1/4000] [ETA: 8:03:21.110679] [Duration: 0:00:07.252081] [Loss: 104404.0155] [Model: D3CG_custom]
+2025-09-09 17:23:30,659 [INFO] [Epoch 2/4000] [ETA: 5:26:39.760952] [Duration: 0:00:04.902380] [Loss: 32405.5606] [Model: D3CG_custom]
+2025-09-09 17:23:35,641 [INFO] [Epoch 3/4000] [ETA: 5:31:51.302911] [Duration: 0:00:04.981553] [Loss: 19455.5476] [Model: D3CG_custom]
+2025-09-09 17:24:31,460 [INFO] Args: Namespace(model_name='D3CG_custom', wave_type='db4', nonlinear_type='sigmoid', transform_levels=1, dataset_type='ctmri', dataset_train_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/train/', dataset_val_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/val/', out_name='D3CG_custom', batch_size=2, T=1000, ch=128, ch_mult=[1, 2, 3, 4], attn=[2], num_res_blocks=2, dropout=0.3, lr=1e-05, n_epochs=4000, beta_1=0.0001, beta_T=0.02, grad_clip=1.0, image_size=256, psi=1.0, s=0.1, alpha=1.0, beta=1.0, negative_slope=0.1, scale=1.0, save_weight_dir='./results/CT-MRI', resume_ckpt='', start_epoch=1, val_start_epoch=3951, val_num=12, list_models=False)
+2025-09-09 17:24:31,460 [INFO] Model: D3CG_custom
+2025-09-10 22:03:36,163 [INFO] Args: Namespace(model_name='D3CG_custom', wave_type='db4', nonlinear_type='sigmoid', transform_levels=1, dataset_type='ctmri', dataset_train_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/train/', dataset_val_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/val/', out_name='D3CG_custom', batch_size=2, T=1000, ch=128, ch_mult=[1, 2, 3, 4], attn=[2], num_res_blocks=2, dropout=0.3, lr=1e-05, n_epochs=4000, beta_1=0.0001, beta_T=0.02, grad_clip=1.0, image_size=256, psi=1.0, s=0.1, alpha=1.0, beta=1.0, negative_slope=0.1, scale=1.0, save_weight_dir='./results/CT-MRI', resume_ckpt='', start_epoch=1, val_start_epoch=3951, val_num=12, list_models=False)
+2025-09-10 22:03:36,172 [INFO] Model: D3CG_custom
+2025-09-10 22:03:37,920 [INFO] Starting model profiling...
+
+============================================================
+Model Profiling Results for D3CG_custom
+============================================================
+Total Parameters: 83,093,892 (83.09M)
+Trainable Parameters: 82,965,892 (82.97M)
+FLOPs: 237.695G (237,695,336,448.0)
+Model Memory: 0.0MB
+Inference Time: 12.98ms
+============================================================
+
+2025-09-10 22:03:41,503 [INFO] Model profiling completed:
+2025-09-10 22:03:41,504 [INFO]   Parameters: 83.09M
+2025-09-10 22:03:41,504 [INFO]   FLOPs: 237.695G
+2025-09-10 22:03:41,504 [INFO]   Memory: 0.0MB
+2025-09-10 22:03:41,504 [INFO]   Inference Time: 12.98ms
+2025-09-10 22:03:50,144 [INFO] [Epoch 1/4000] [ETA: 9:35:52.096472] [Duration: 0:00:08.640156] [Loss: 89866.0494] [Model: D3CG_custom]
+2025-09-10 22:04:03,927 [INFO] Args: Namespace(model_name='D3CG_custom', wave_type='db4', nonlinear_type='sigmoid', transform_levels=2, dataset_type='ctmri', dataset_train_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/train/', dataset_val_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/val/', out_name='D3CG_custom', batch_size=2, T=1000, ch=128, ch_mult=[1, 2, 3, 4], attn=[2], num_res_blocks=2, dropout=0.3, lr=1e-05, n_epochs=4000, beta_1=0.0001, beta_T=0.02, grad_clip=1.0, image_size=256, psi=1.0, s=0.1, alpha=1.0, beta=1.0, negative_slope=0.1, scale=1.0, save_weight_dir='./results/CT-MRI', resume_ckpt='', start_epoch=1, val_start_epoch=3951, val_num=12, list_models=False)
+2025-09-10 22:04:03,927 [INFO] Model: D3CG_custom
+2025-09-10 22:04:05,607 [INFO] Starting model profiling...
+
+============================================================
+Model Profiling Results for D3CG_custom
+============================================================
+Total Parameters: 83,093,892 (83.09M)
+Trainable Parameters: 82,965,892 (82.97M)
+FLOPs: 237.695G (237,695,336,448.0)
+Model Memory: 0.0MB
+Inference Time: 12.84ms
+============================================================
+
+2025-09-10 22:04:06,391 [INFO] Model profiling completed:
+2025-09-10 22:04:06,391 [INFO]   Parameters: 83.09M
+2025-09-10 22:04:06,391 [INFO]   FLOPs: 237.695G
+2025-09-10 22:04:06,391 [INFO]   Memory: 0.0MB
+2025-09-10 22:04:06,391 [INFO]   Inference Time: 12.84ms
+2025-09-10 22:04:13,526 [INFO] [Epoch 1/4000] [ETA: 7:55:30.839864] [Duration: 0:00:07.134485] [Loss: 104503.3980] [Model: D3CG_custom]
+2025-09-10 22:04:18,247 [INFO] [Epoch 2/4000] [ETA: 5:14:32.256806] [Duration: 0:00:04.720408] [Loss: 34094.4368] [Model: D3CG_custom]
+2025-09-10 22:04:32,945 [INFO] Args: Namespace(model_name='D3CG_custom', wave_type='db4', nonlinear_type='linear', transform_levels=2, dataset_type='ctmri', dataset_train_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/train/', dataset_val_dir='/home/midi/datasets/HavardMedicalImage/CT-MRI/val/', out_name='D3CG_custom', batch_size=2, T=1000, ch=128, ch_mult=[1, 2, 3, 4], attn=[2], num_res_blocks=2, dropout=0.3, lr=1e-05, n_epochs=4000, beta_1=0.0001, beta_T=0.02, grad_clip=1.0, image_size=256, psi=1.0, s=0.1, alpha=1.0, beta=1.0, negative_slope=0.1, scale=1.0, save_weight_dir='./results/CT-MRI', resume_ckpt='', start_epoch=1, val_start_epoch=3951, val_num=12, list_models=False)
+2025-09-10 22:04:32,945 [INFO] Model: D3CG_custom
+2025-09-10 22:04:34,611 [INFO] Starting model profiling...
+
+============================================================
+Model Profiling Results for D3CG_custom
+============================================================
+Total Parameters: 83,093,892 (83.09M)
+Trainable Parameters: 82,965,892 (82.97M)
+FLOPs: 237.695G (237,695,336,448.0)
+Model Memory: 0.0MB
+Inference Time: 12.96ms
+============================================================
+
+2025-09-10 22:04:36,412 [INFO] Model profiling completed:
+2025-09-10 22:04:36,413 [INFO]   Parameters: 83.09M
+2025-09-10 22:04:36,413 [INFO]   FLOPs: 237.695G
+2025-09-10 22:04:36,413 [INFO]   Memory: 0.0MB
+2025-09-10 22:04:36,413 [INFO]   Inference Time: 12.96ms
+2025-09-10 22:04:41,699 [INFO] [Epoch 1/4000] [ETA: 5:52:18.489996] [Duration: 0:00:05.285931] [Loss: 115418.1370] [Model: D3CG_custom]
+2025-09-10 22:04:46,709 [INFO] [Epoch 2/4000] [ETA: 5:33:50.728222] [Duration: 0:00:05.010168] [Loss: 41037.7133] [Model: D3CG_custom]
