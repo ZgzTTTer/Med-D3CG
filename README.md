@@ -73,5 +73,12 @@ python pinggu.py
 ## 📜 Citation
 If you find this work useful, please cite our paper:
 ```
-
+@article{zhu2025med,
+  title={Med-D3CG: Wavelet-Based Diffusion in the Difference Domain for Cross-Modality Medical Image Generation},
+  author={Zhu, Guangzhen and Wan, Midi and Cao, Wenming and Yu, Zhiwen and Hu, Jin and Li, Bing and Fan, Xiaotao},
+  journal={Expert Systems with Applications},
+  pages={129651},
+  year={2025},
+  publisher={Elsevier}
+}
 ```
